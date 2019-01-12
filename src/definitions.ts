@@ -5,10 +5,10 @@ declare global {
 }
 
 export interface CapacitorFirebaseAnalyticsPlugin {
-  logEvent(name: string, parameters: string[]): Promise<any>;
-  setUserProperty(value: string, name: string): Promise<any>;
-  setUserId(userId: string): Promise<any>;
-  setScreenName(screenName: string, screenClassOverride: string): Promise<any>;
+  logEvent(options: { name: string, parameters: any[] }): void;
+  setUserProperty(options: { value: string, name: string }): void;
+  setUserId(options: { userId: string }): void;
+  setScreenName(options: { screenName: string, screenClassOverride: string }): void;
   appInstanceId(): string;
   resetAnalyticsData(): void;
 }
