@@ -1,6 +1,6 @@
 declare global {
     interface PluginRegistry {
-        CapacitorFirebaseAnalytics?: CapacitorFirebaseAnalyticsPlugin;
+        FirebaseAnalytics?: CapacitorFirebaseAnalyticsPlugin;
     }
 }
 export interface CapacitorFirebaseAnalyticsPlugin {
@@ -17,7 +17,7 @@ export interface CapacitorFirebaseAnalyticsPlugin {
     }): void;
     setScreenName(options: {
         screenName: string;
-        screenClassOverride: string;
+        screenClassOverride?: string;
     }): void;
     appInstanceId(): string;
     resetAnalyticsData(): void;
