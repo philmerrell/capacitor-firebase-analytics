@@ -1,57 +1,85 @@
+//
+//  FirebaseAnalytics.swift
+//  App
+//
+//  Created by Phil Merrell on 1/22/19.
+//
+
 import Foundation
 import Capacitor
 import Firebase
 
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitor.ionicframework.com/docs/plugins/ios
- */
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
-
-    override init() {
-        super.init();
-        FirebaseApp.configure();
-    }
-    
-//    @objc func echo(_ call: CAPPluginCall) {
-//        let value = call.getString("value") ?? ""
-//        call.success([
-//            "value": value
-//        ])
-//    }
     
     @objc func setScreenName(_ call: CAPPluginCall) {
-        let screenName = call.getString("screenName") ?? "";
-        let screenClassOverride = call.getString("screenClassOverride") ?? "";
-        Analytics.setScreenName(screenName, screenClass: screenClassOverride);
+        let screenName = call.getString("screenName");
+        let screenClassOverride = call.getString("screenClassOverride");
+        if screenName != nil {
+            DispatchQueue.main.async {
+                Analytics.setScreenName(screenName, screenClass: screenClassOverride);
+            }
+        } else {
+            call.error("You must pass a screen name")
+            self.bridge.modulePrint(self, "A screen name was not passed")
+            return
+        }
     }
     
     @objc func setUserProperty(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? "";
-        let name = call.getString("name") ?? "";
-        Analytics.setUserProperty(value, forName: name);
+        let value = call.getString("value");
+        let name = call.getString("name");
+        if value != nil && name != nil {
+            DispatchQueue.main.async {
+                Analytics.setUserProperty(value, forName: name!);
+            }
+        } else {
+            call.error("You must pass a User Property name and value")
+            self.bridge.modulePrint(self, "A user property name and value was not passed.")
+            return
+        }
     }
     
     @objc func logEvent(_ call: CAPPluginCall) {
-//        let name = call.getString("name") ?? "";
-//        let parameters = call.getString("parameters");
-//        Analytics.logEvent(name, parameters: parameters);
+                let name = call.getString("name");
+                let parameters = call.getObject("parameters") ?? nil;
+        if name != nil {
+            DispatchQueue.main.async {
+                Analytics.logEvent(name!, parameters: parameters);
+            }
+        } else {
+            call.error("You must pass an event name.")
+            self.bridge.modulePrint(self, "An event name and value was not passed.")
+            return
+        }
     }
     
     @objc func setUserId(_ call: CAPPluginCall) {
-        let userId = call.getString("userId") ?? "";
-        Analytics.setUserID(userId);
+        let userId = call.getString("userId");
+        
+        if userId != nil {
+            DispatchQueue.main.async {
+                Analytics.setUserID(userId);
+            }
+        } else {
+            call.error("You must pass a userId.")
+            self.bridge.modulePrint(self, "A userId was not passed.")
+            return
+        }
+        
     }
     
     @objc func appInstanceId(_ call: CAPPluginCall) {
-        let instanceId = Analytics.appInstanceID();
-        call.success([
-            "appInstanceId": instanceId
-        ])
+        
+        DispatchQueue.main.async {
+            let instanceId = Analytics.appInstanceID();
+            call.success(["appInstanceId": instanceId])
+        }
+        
     }
     @objc func resetAnalyticsData() {
-        Analytics.resetAnalyticsData();
+        DispatchQueue.main.async {
+            Analytics.resetAnalyticsData();
+        }
     }
-    
 }
