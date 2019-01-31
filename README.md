@@ -15,6 +15,45 @@ Navigate to the project settings page for your application on Firebase.
 
 **iOS:** Download the 'GoogleService-Info.plist` file. In Xcode right-click on the yellow folder named, "App" and select the 'Add files to "App"'. *tip: if you drag and drop your file to this location, Xcode may not be able to find it.*
 
+## Methods
+
+### logEvent(_options_: { _name_: _string_, _parameters_?: _object_ })
+Logs an app event.
+```js
+FirebaseAnalytics.logEvent({ name: 'event_name',  parameters: { param1: 'value1', param2: 'value2' });
+```
+
+### setUserId(_options_: { _userId_: _string_ })
+Sets the user ID property.
+```js
+FirebaseAnalytics.setUserId({ userId: '11223344' });
+```
+
+### setUserProperty(_options_: { _name_: _string_, _value_: _string })
+Sets a user property to a given value.
+```js
+FirebaseAnalytics.setUserProperty({ name: 'name1', value: 'value1' });
+```
+
+### setScreenName(options: { screenName: string, screenClassOverride?: string)
+Sets the current screen name, which specifies the current visual context in your app. This helps identify the areas in your app where users spend their time and how they interact with your app.
+```js
+FirebaseAnalytics.setScreenName({ screenName: 'screen1', screenClassOverride: 'ScreenClassName'});
+```
+
+### appInstanceId(): Promise<string>
+The unique ID for this instance of the application.
+```js
+FirebaseAnalytics.appInstanceId();
+```
+
+### resetAnalyticsData()
+Clears all analytics data for this instance from the device and resets the app instance ID.
+```js
+FirebaseAnalytics.resetAnalyticsData();
+```
+
+
 ***
 # Detailed Install on New Project [Android]
 ## Step 1: Firebase App Setup
