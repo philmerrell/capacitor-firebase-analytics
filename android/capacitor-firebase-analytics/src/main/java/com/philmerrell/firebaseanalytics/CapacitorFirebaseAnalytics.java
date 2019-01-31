@@ -1,10 +1,15 @@
 package com.philmerrell.firebaseanalytics;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.cordova.MockCordovaWebViewImpl;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,14 +19,14 @@ import java.util.Iterator;
 public class CapacitorFirebaseAnalytics extends Plugin {
 
     private FirebaseAnalytics firebaseAnalytics;
+    private static final String TAG = "CapacitorFirebaseAnalyticsPlugin";
 
-    public CapacitorFirebaseAnalytics(){
-        firebaseAnalytics = firebaseAnalytics = MainActivity.firebaseAnalytics;
+    public void load(){
+        firebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
     }
 
     @PluginMethod()
     public void logEvent(PluginCall call) throws JSONException {
-        private static final String TAG = "CapacitorFirebaseAnalyticsPlugin";
         final String name = call.getString("name", null);
         JSObject data = call.getData();
         final JSONObject params =  data.optJSONObject("parameters");
