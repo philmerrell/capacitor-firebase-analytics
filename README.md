@@ -47,3 +47,4 @@ Navigate to the project settings page for your application on Firebase.
 2. Click "Register app"
 3. Follow the instructions for downloading the 'google-services.json' and adding the Firebase SDK.
 4. Run the app. If everything worked correctly, you should see a response on the Firebase console.
+5. More info can be found here: https://firebase.google.com/docs/android/setup
