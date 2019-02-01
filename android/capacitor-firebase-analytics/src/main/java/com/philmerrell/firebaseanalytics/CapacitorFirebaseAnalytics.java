@@ -114,7 +114,7 @@ public class CapacitorFirebaseAnalytics extends Plugin {
     }
 
     @PluginMethod()
-    public String appInstanceId(PluginCall call) {
+    public void appInstanceId(PluginCall call) {
         try {
             String appId = firebaseAnalytics.getAppInstanceId().toString();
             JSObject ret = new JSObject();
