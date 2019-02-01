@@ -105,9 +105,9 @@ public class CapacitorFirebaseAnalytics extends Plugin {
                 @Override
                 public void run() {
                     firebaseAnalytics.setCurrentScreen(getActivity(), value, null);
-                    call.success();
                 }
             });
+            call.success();
         } catch (Exception e) {
             call.reject(e.getLocalizedMessage(), e);
         }
