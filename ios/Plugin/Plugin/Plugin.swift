@@ -11,6 +11,10 @@ import Firebase
 
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
+
+    init() {
+        FirebaseApp.configure()
+    }
     
     @objc func setScreenName(_ call: CAPPluginCall) {
         let screenName = call.getString("screenName");
