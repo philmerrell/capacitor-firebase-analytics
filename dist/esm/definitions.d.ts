@@ -1,9 +1,9 @@
 declare global {
     interface PluginRegistry {
-        FirebaseAnalytics?: CapacitorFirebaseAnalyticsPlugin;
+        FirebaseAnalytics?: FirebaseAnalytics;
     }
 }
-export interface CapacitorFirebaseAnalyticsPlugin {
+export interface FirebaseAnalytics {
     logEvent(options: {
         name: string;
         parameters: object;
