@@ -18,6 +18,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
         if screenName != nil {
             DispatchQueue.main.async {
                 Analytics.setScreenName(screenName, screenClass: screenClassOverride);
+                call.success();
             }
         } else {
             call.error("You must pass a screen name")
@@ -32,6 +33,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
         if value != nil && name != nil {
             DispatchQueue.main.async {
                 Analytics.setUserProperty(value, forName: name!);
+                call.success();
             }
         } else {
             call.error("You must pass a User Property name and value")
@@ -46,6 +48,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
         if name != nil {
             DispatchQueue.main.async {
                 Analytics.logEvent(name!, parameters: parameters);
+                call.success();
             }
         } else {
             call.error("You must pass an event name.")
@@ -60,6 +63,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
         if userId != nil {
             DispatchQueue.main.async {
                 Analytics.setUserID(userId);
+                call.success();
             }
         } else {
             call.error("You must pass a userId.")
@@ -80,6 +84,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
     @objc func resetAnalyticsData() {
         DispatchQueue.main.async {
             Analytics.resetAnalyticsData();
+            call.success();
         }
     }
 }
