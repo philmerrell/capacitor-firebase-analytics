@@ -10,26 +10,28 @@ export class CapacitorFirebaseAnalyticsWeb extends WebPlugin implements Capacito
   }
 
   logEvent(options: { name: string, parameters: any[]}) {
-    
+    return Promise.resolve();
   }
 
   setUserProperty(options: { value: string, name: string}) {
-
+    return Promise.resolve();
   }
 
   setUserId(options: { userId: string }) {
-
+    return Promise.resolve();
   }
 
   setScreenName(options: { screenName: string, screenClassOverride: string }) {
-
+    return Promise.resolve();
   }
 
   appInstanceId() {
-    return '';
+    return Promise.resolve({ appInstanceId: ''});
   }
 
-  resetAnalyticsData() {}
+  resetAnalyticsData() {
+    return Promise.resolve();
+  }
 }
 
 const CapacitorFirebaseAnalytics = new CapacitorFirebaseAnalyticsWeb();
