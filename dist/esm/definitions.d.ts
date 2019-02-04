@@ -17,7 +17,7 @@ export interface FirebaseAnalytics {
     }): Promise<void>;
     setScreenName(options: {
         screenName: string;
-        screenClassOverride: string;
+        screenClassOverride?: string;
     }): Promise<void>;
     appInstanceId(): Promise<{
         appInstanceId: string;
