@@ -26,7 +26,7 @@ public class CapacitorFirebaseAnalytics extends Plugin {
     }
 
     @PluginMethod()
-    public void logEvent(PluginCall call) throws JSONException {
+    public void setUserProperty(PluginCall call) throws JSONException {
         try {
             final String name = call.getString("name");
             final String value = call.getString("value");
@@ -42,7 +42,7 @@ public class CapacitorFirebaseAnalytics extends Plugin {
     }
 
     @PluginMethod()
-    public void setUserProperty(PluginCall call) {
+    public void logEvent(PluginCall call) {
         try {
             final String name = call.getString("name", null);
             JSObject data = call.getData();
