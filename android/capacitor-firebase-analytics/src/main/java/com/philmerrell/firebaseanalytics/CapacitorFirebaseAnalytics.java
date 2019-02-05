@@ -15,11 +15,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Iterator;
 
-@NativePlugin()
+@NativePlugin(
+    permissions = {
+        Manifest.permission.ACCESS_NETWORK_STATE,
+        Manifest.permission.INTERNET,
+        Manifest.permission.WAKE_LOCK
+    }
+)
 public class CapacitorFirebaseAnalytics extends Plugin {
 
     private FirebaseAnalytics firebaseAnalytics;
-    private static final String TAG = "CapacitorFirebaseAnalyticsPlugin";
 
     public void load() {
         firebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
@@ -66,7 +71,7 @@ public class CapacitorFirebaseAnalytics extends Plugin {
                         } else if (value instanceof Long) {
                             bundle.putLong(key, (Long) value);
                         } else {
-                            Log.w(TAG, "Value for key " + key + " not one of (String, Integer, Double, Long)");
+                            call.reject("Value for key " + key + " not one of (String, Integer, Double, Long)");
                         }
                     }
                 } else {
