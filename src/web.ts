@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
-import { FirebaseAnalytics } from './definitions';
+import { CapacitorFirebaseAnalytics } from './definitions';
 
-export class CapacitorFirebaseAnalyticsWeb extends WebPlugin implements FirebaseAnalytics {
+export class CapacitorFirebaseAnalyticsWeb extends WebPlugin implements CapacitorFirebaseAnalytics {
   constructor() {
     super({
       name: 'FirebaseAnalytics',
