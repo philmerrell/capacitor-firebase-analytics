@@ -1,6 +1,6 @@
 {
   "name": "capacitor-firebase-analytics",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Capacitor plugin for iOS and Android for using Firebase Analytics",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
