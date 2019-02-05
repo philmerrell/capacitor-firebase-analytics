@@ -1,5 +1,6 @@
 package com.philmerrell.firebaseanalytics;
 
+import android.Manifest;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -106,10 +107,11 @@ public class CapacitorFirebaseAnalytics extends Plugin {
     public void setScreenName(PluginCall call) {
         try {
             final String value = call.getString("screenName");
+            final String overrideName = call.getString("screenClassOverride", null);
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    firebaseAnalytics.setCurrentScreen(getActivity(), value, null);
+                    firebaseAnalytics.setCurrentScreen(getActivity(), value, overrideName);
                 }
             });
             call.success();
