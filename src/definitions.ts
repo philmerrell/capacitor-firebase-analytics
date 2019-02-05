@@ -1,6 +1,6 @@
 declare global {
   interface PluginRegistry {
-    FirebaseAnalytics?: CapacitorFirebaseAnalytics;
+    CapacitorFirebaseAnalytics?: CapacitorFirebaseAnalytics;
   }
 }
 
