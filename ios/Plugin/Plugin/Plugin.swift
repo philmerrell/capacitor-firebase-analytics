@@ -7,14 +7,13 @@
 
 import Foundation
 import Capacitor
-import Firebase
+import FirebaseCore
+import FirebaseAnalytics
 
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
 
-    init() {
-        FirebaseApp.configure()
-    }
+    var fbase = FirebaseApp.configure();
     
     @objc func setScreenName(_ call: CAPPluginCall) {
         let screenName = call.getString("screenName");
@@ -85,7 +84,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
         }
         
     }
-    @objc func resetAnalyticsData() {
+    @objc func resetAnalyticsData(_ call: CAPPluginCall) {
         DispatchQueue.main.async {
             Analytics.resetAnalyticsData();
             call.success();
