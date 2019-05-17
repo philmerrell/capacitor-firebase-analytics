@@ -13,7 +13,14 @@ import FirebaseAnalytics
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
 
-    var fbase = FirebaseApp.configure();
+    var fbase: FirebaseApp? = nil;
+    
+    public override func load() {
+        if (FirebaseApp.app() == nil) {
+            FirebaseApp.configure();
+            fbase = FirebaseApp.app()
+        }
+    }
     
     @objc func setScreenName(_ call: CAPPluginCall) {
         let screenName = call.getString("screenName");
