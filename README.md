@@ -1,6 +1,6 @@
 # capacitor-firebase-analytics
 
-don't use this yet.
+don't use this yet. (see: [issue #2](https://github.com/philmerrell/capacitor-firebase-analytics/issues/2#issuecomment-498327256))
 
 # Quickstart
 
