@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/capacitor-firebase-analytics.svg)](https://badge.fury.io/js/capacitor-firebase-analytics)
 
 # capacitor-firebase-analytics
-This is Firebase Analytics Plugin for Capacitor.
+This is Firebase Analytics plugin for Capacitor.
 
 ## Installation
 
@@ -13,9 +13,16 @@ $ npm install capacitor-firebase-analytics
 ### Step 2: Firebase Settings File
 Navigate to the project settings page for your application on Firebase.
 
-**Android:** Download the `google-services.json` file and copy it to the `android/app/` directory of your capacitor project. You will also need to add the Firebase SDK to your gradle files. More info can be found here: https://firebase.google.com/docs/android/setup#manually_add_firebase
+**Android:** 
+Download the `google-services.json` file and copy it to the `android/app/` directory of your capacitor project. You will also need to add the Firebase SDK to your gradle files. 
 
-**iOS:** Download the `GoogleService-Info.plist` file. In Xcode right-click on the yellow folder named, "App" and select the 'Add files to "App"'. 
+More info can be found here: 
+
+https://firebase.google.com/docs/android/setup#manually_add_firebase
+
+**iOS:** 
+Download the `GoogleService-Info.plist` file. In Xcode right-click on the yellow folder named, "App" and select the 'Add files to "App"'. 
+
 *tip: If you drag and drop your file to this location, You need set `Target Membership` on Xcode.*
 
 ### Step 3: Android configuration
@@ -80,6 +87,8 @@ FirebaseAnalytics.resetAnalyticsData();
 ```
 
 ***
+
+
 # Reference [Android]
 ## Step 1: Firebase App Setup
 1. On the Firebase console (https://console.firebase.google.com/), click "Add project."
