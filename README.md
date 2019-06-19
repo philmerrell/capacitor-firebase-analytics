@@ -1,61 +1,95 @@
+[![npm version](https://badge.fury.io/js/capacitor-firebase-analytics.svg)](https://badge.fury.io/js/capacitor-firebase-analytics)
+
 # capacitor-firebase-analytics
+This is Firebase Analytics plugin for Capacitor.
 
-don't use this yet. (see: [issue #2](https://github.com/philmerrell/capacitor-firebase-analytics/issues/2#issuecomment-498327256))
+## Installation
 
-# Quickstart
+### Step 1: NPM Install
+```bash
+$ npm install capacitor-firebase-analytics
+```
 
-## Step 1: Install
-`npm install capacitor-firebase-analytics`
-`npx cap sync`
-
-## Step 2: Firebase Settings File
+### Step 2: Firebase Settings File
 Navigate to the project settings page for your application on Firebase.
 
-**Android:** Download the `google-services.json` file and copy it to the `android/app/` directory of your capacitor project. You will also need to add the Firebase SDK to your gradle files. More info can be found here: https://firebase.google.com/docs/android/setup#manually_add_firebase
+#### Android
+Download the `google-services.json` file and copy it to the `android/app/` directory of your capacitor project. You will also need to add the Firebase SDK to your gradle files. 
 
-**iOS:** Download the `GoogleService-Info.plist` file. In Xcode right-click on the yellow folder named, "App" and select the 'Add files to "App"'. *tip: if you drag and drop your file to this location, Xcode may not be able to find it.*
+More info can be found here: 
+
+https://firebase.google.com/docs/android/setup#manually_add_firebase
+
+#### iOS
+Download the `GoogleService-Info.plist` file. In Xcode right-click on the yellow folder named, "App" and select the 'Add files to "App"'. 
+
+*tip: If you drag and drop your file to this location, You need set `Target Membership` on Xcode.*
+
+### Step 3: Android configuration
+
+In file `android/app/src/main/java/**/**/MainActivity.java`, add the plugin to the initialization list:
+
+```java
+this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+  [...]
+  add(com.philmerrell.firebaseanalytics.CapacitorFirebaseAnalytics.class);
+  [...]
+}});
+```
+
+### Step 4: iOS configuration
+
+not need configuration.
+
 
 ## Methods
 
 ### logEvent(_options_: { _name_: _string_, _parameters_?: _object_ })
 Logs an app event.
+
 ```js
-FirebaseAnalytics.logEvent({ name: 'event_name',  parameters: { param1: 'value1', param2: 'value2' });
+Plugins.CapacitorFirebaseAnalytics.logEvent({ name: 'event_name',  parameters: { param1: 'value1', param2: 'value2' });
 ```
 
 ### setUserId(_options_: { _userId_: _string_ })
 Sets the user ID property.
+
 ```js
-FirebaseAnalytics.setUserId({ userId: '11223344' });
+Plugins.CapacitorFirebaseAnalytics.setUserId({ userId: '11223344' });
 ```
 
 ### setUserProperty(_options_: { _name_: _string_, _value_: _string })
 Sets a user property to a given value.
+
 ```js
-FirebaseAnalytics.setUserProperty({ name: 'name1', value: 'value1' });
+Plugins.CapacitorFirebaseAnalytics.setUserProperty({ name: 'name1', value: 'value1' });
 ```
 
 ### setScreenName(options: { screenName: string, screenClassOverride?: string)
 Sets the current screen name, which specifies the current visual context in your app. This helps identify the areas in your app where users spend their time and how they interact with your app.
+
 ```js
-FirebaseAnalytics.setScreenName({ screenName: 'screen1', screenClassOverride: 'ScreenClassName'});
+Plugins.CapacitorFirebaseAnalytics.setScreenName({ screenName: 'screen1', screenClassOverride: 'ScreenClassName'});
 ```
 
 ### appInstanceId(): Promise<string>
 The unique ID for this instance of the application.
+
 ```js
-FirebaseAnalytics.appInstanceId();
+Plugins.CapacitorFirebaseAnalytics.appInstanceId();
 ```
 
 ### resetAnalyticsData()
 Clears all analytics data for this instance from the device and resets the app instance ID.
+
 ```js
 FirebaseAnalytics.resetAnalyticsData();
 ```
 
-
 ***
-# Detailed Install on New Project [Android]
+
+
+# Reference [Android]
 ## Step 1: Firebase App Setup
 1. On the Firebase console (https://console.firebase.google.com/), click "Add project."
 2. Click "Create Project" after naming the project and accepting the terms.
@@ -79,7 +113,7 @@ FirebaseAnalytics.resetAnalyticsData();
 1. `npm install capacitor-firebase-analytics`
 2. `npx cap sync`
 3. Open project in Android Studio.
-4. In the 'MainAcivity.java' file, add `add(CapacitorFirebaseAnalytics.class);` in the `this.init` method call.
+4. In the 'MainAcivity.java' file, add `add(com.philmerrell.firebaseanalytics.CapacitorFirebaseAnalytics.class);` in the `this.init` method call.
  
 ## Step 4: Add dependencies
 1. Return to the Firebase app registration from the end of Step 1.
