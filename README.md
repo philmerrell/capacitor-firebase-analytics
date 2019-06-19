@@ -79,7 +79,7 @@ FirebaseAnalytics.resetAnalyticsData();
 1. `npm install capacitor-firebase-analytics`
 2. `npx cap sync`
 3. Open project in Android Studio.
-4. In the 'MainAcivity.java' file, add `add(CapacitorFirebaseAnalytics.class);` in the `this.init` method call.
+4. In the 'MainAcivity.java' file, add `add(com.philmerrell.firebaseanalytics.CapacitorFirebaseAnalytics.class);` in the `this.init` method call.
  
 ## Step 4: Add dependencies
 1. Return to the Firebase app registration from the end of Step 1.
