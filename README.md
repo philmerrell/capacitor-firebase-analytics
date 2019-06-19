@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/capacitor-firebase-analytics.svg)](https://badge.fury.io/js/capacitor-firebase-analytics)
+
 # capacitor-firebase-analytics
 This is Firebase Analytics Plugin for Capacitor.
 
