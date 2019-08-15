@@ -75,8 +75,6 @@ public class CapacitorFirebaseAnalytics extends Plugin {
                             call.reject("Value for key " + key + " not one of (String, Integer, Double, Long)");
                         }
                     }
-                } else {
-                    call.reject("key 'parameters' does not exist");
                 }
                 firebaseAnalytics.logEvent(name, bundle);
                 call.success();
