@@ -13,8 +13,7 @@
   "author": "Phil Merrell",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "latest",
-    "npm": "^6.7.0"
+    "@capacitor/core": "latest"
   },
   "devDependencies": {
     "typescript": "^2.6.2"
