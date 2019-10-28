@@ -1,0 +1,16 @@
+platform :ios, '11.0'
+
+def capacitor_pods
+  use_frameworks!
+  pod 'Capacitor', :path => '../node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../node_modules/@capacitor/ios'
+  pod 'Firebase/Core'
+end
+
+target 'Plugin' do
+  capacitor_pods
+end
+
+target 'PluginTests' do
+  capacitor_pods
+end
