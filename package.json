@@ -11,6 +11,7 @@
     "prepublishOnly": "npm run build"
   },
   "author": "Phil Merrell",
+  "homepage": "https://github.com/philmerrell/capacitor-firebase-analytics",
   "license": "MIT",
   "dependencies": {
     "@capacitor/core": "latest"
